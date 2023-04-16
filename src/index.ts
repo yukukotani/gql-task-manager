@@ -12,6 +12,7 @@ const schema = createSchema({
 
     type Mutation {
       addTask(ownerId: ID!, title: String!): Task!
+      updateTask(id: ID!, ownerId: ID!, title: String!): Task!
     }
 
     type Task {
@@ -47,6 +48,28 @@ const schema = createSchema({
 
         await env.TASK_MANAGER.put(
           `task:${args.ownerId}:${id}`,
+          JSON.stringify(task)
+        );
+
+        return task;
+      },
+      updateTask: async (_, args, env: Env) => {
+        const current = await env.TASK_MANAGER.get(
+          `task:${args.ownerId}:${args.id}`,
+          "json"
+        );
+        if (!current) {
+          throw new Error("Invali id: " + args.id);
+        }
+
+        const task = {
+          id: args.id,
+          ownerId: args.ownerId,
+          title: args.title,
+        };
+
+        await env.TASK_MANAGER.put(
+          `task:${args.ownerId}:${args.id}`,
           JSON.stringify(task)
         );
 
