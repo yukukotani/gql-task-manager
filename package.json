@@ -2,9 +2,10 @@
   "name": "gql-task-manager",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "wrangler dev",
+    "publish": "wrangler publish"
   },
   "author": "Yuku Kotani (yukukotani@gmail.com)",
   "license": "Apache-2.0",
@@ -13,6 +14,11 @@
     "graphql-yoga": "^3.9.0"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230404.0",
+    "@graphql-codegen/add": "^4.0.1",
+    "@graphql-codegen/cli": "^3.3.0",
+    "@graphql-codegen/typescript": "^3.0.3",
+    "@graphql-codegen/typescript-resolvers": "^3.2.0",
     "typescript": "^5.0.4",
     "wrangler": "^2.15.1"
   }

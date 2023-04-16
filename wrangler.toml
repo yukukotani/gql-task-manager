@@ -1,0 +1,8 @@
+name = "gql-task-manager"
+compatibility_date = "2023-04-16"
+main = "./src/index.ts"
+
+[[kv_namespaces]]
+binding = "TASK_MANAGER"
+id = "64ebbd8f083b42ed86d825080fbf5d11"
+preview_id = "1adfb5f81c0747628629a9158d019fd4"
